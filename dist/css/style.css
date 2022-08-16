@@ -194,11 +194,17 @@ input::-ms-clear {
 button {
   cursor: pointer;
   background-color: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
+}
+
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 a,
@@ -238,6 +244,14 @@ body {
 }
 body._lock {
   overflow: hidden;
+}
+body._touch ._btn:active {
+  background-color: transparent;
+  color: #22C3CA;
+}
+body._touch ._btn._white:active {
+  background-color: transparent;
+  color: #fff;
 }
 
 .wrapper {
@@ -719,6 +733,7 @@ textarea.input {
   border: 2px solid #22C3CA;
   border-radius: 50%;
   transition: all 0.3s ease 0s;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   cursor: pointer;
 }
 @media (any-hover: hover) {
@@ -726,6 +741,10 @@ textarea.input {
     color: #22C3CA;
     background-color: #fff;
   }
+}
+._circle:active {
+  color: #22C3CA;
+  background-color: #fff;
 }
 
 .row:after {
