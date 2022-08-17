@@ -33,7 +33,7 @@
 			</div>
 			<div class="header__actions actions-header">
 				<div class="actions-header__contact">
-					<div class="actions-header__logo _icon-call"></div>
+					<div class="actions-header__logo _icon-Phone-Icon"></div>
 					<div class="actions-header__telephone">
 						<div class="actions-header__number">+38 050 914 19 59</div>
 						<a href="#" class="actions-header__text">Заказать звонок</a>
@@ -62,11 +62,67 @@
 						</div>
 					</form>
 					<div class="main-header__descriptor descriptor-main">
-						<div class="descriptor-main__range"></div>
-						<a href="#" class="descriptor-main__showhide">Расширенный поиск</a>
+						<form action="#" name="rangeDescriptor" class="descriptor-main__form">
+							<div class="descriptor-main__date range-descriptor">
+								<div class="range-descriptor__input range-descriptor__input_date _input">
+									<div class="range-descriptor__input__logo _icon-calendar"></div>
+									<input type="text" class="range-descriptor__field" placeholder="Месяц или дата">
+									<div class="range-descriptor__arrow _icon-arrow"></div>
+								</div>
+								<div class="range-descriptor__flex flex-range">
+									<input type="checkbox" class="flex-range__checkbox" checked>
+									<label class="flex-range__text">Гибкие даты</label>
+								</div>
+							</div>
+							<div class="descriptor-main__slider slider-descriptor">
+								<div class="slider-descriptor__duration">Продолжительность</div>
+								<div class="slider-descriptor__slider">
+									<div class="slider-descriptor__progress"></div>
+								</div>
+								<div class="slider-descriptor__inputs">
+									<input type="range" class="slider-descriptor__inputs_min" step="1	" min="2" max="180"
+										value="2">
+									<input type="range" class="slider-descriptor__inputs_max" step="1" min="2" max="180"
+										value="180">
+								</div>
+								<div class="slider-descriptor__between">
+									<div class="slider-descriptor__prop slider-descriptor__prop_min">От <span>2</span> дней</div>
+									<div class="slider-descriptor__prop slider-descriptor__prop_max">До <span>180</span> дней
+									</div>
+								</div>
+							</div>
+							<div class="descriptor-main__persons range-descriptor">
+								<div class="range-descriptor__input range-descriptor__input_persons _input">
+									<div class="range-descriptor__input__logo _icon-human"></div>
+									<input type="text" class="range-descriptor__field" value="Количество персон: 0" disabled>
+									<div id="sub-range" class="range-descriptor__arrow _icon-arrow"></div>
+								</div>
+								<div class="range-descriptor__sub sub-range">
+									<div class="sub-range__row">
+										<div class="sub-range__kind">Врослые</div>
+										<div class="sub-range__counter">
+											<input type="text" class="sub-range__counter__value" value="0" disabled>
+											<div class="sub-range__action sub-range__action_minus _action">-</div>
+											<div class="sub-range__action sub-range__action_plus _action">+</div>
+										</div>
+									</div>
+									<div class="sub-range__row">
+										<div class="sub-range__kind">Дети</div>
+										<div class="sub-range__counter">
+											<input type="text" class="sub-range__counter__value" value="0" disabled>
+											<div class="sub-range__action sub-range__action_minus _action">-</div>
+											<div class="sub-range__action sub-range__action_plus _action">+</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="descriptor-main__showhide">
+							<a href="#" data-spoller=".descriptor-main__form">Расширенный поиск</a>
+						</div>
 					</div>
 					<button class="descriptor-main__btn _btn _btn_white">Найти путешествия</button>
-					<div class="descriptor-main__call _icon-call _circle"></div>
+					<div class="descriptor-main__call _icon-Phone-Icon _circle"></div>
 				</div>
 			</section>
 		</main>
