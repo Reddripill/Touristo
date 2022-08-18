@@ -1,6 +1,5 @@
 /gulp
 /node_modules
-/src
 gulpfile.js
 Help.txt
 package-lock.json

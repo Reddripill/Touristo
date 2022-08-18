@@ -196,6 +196,10 @@ input::-ms-clear {
   display: none;
 }
 
+input {
+  -webkit-appearance: none;
+}
+
 button {
   cursor: pointer;
   background-color: inherit;
@@ -717,16 +721,19 @@ textarea.input {
     height: 3.5rem;
   }
 }
-._input input {
+._input input[type=text] {
   height: 100%;
   width: 100%;
   border-radius: 8px;
 }
-._input input::placeholder {
+._input input[type=text]::placeholder {
   color: #9B9B9B;
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5em;
+}
+._input input[type=submit] {
+  -webkit-appearance: none;
 }
 
 ._circle {
@@ -750,6 +757,56 @@ textarea.input {
 ._circle:active {
   color: #22C3CA;
   background-color: #fff;
+}
+
+._div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #22C3CA;
+  padding: 0 2.3125rem 0 0.8125rem;
+  border-radius: 48px;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.5em;
+  position: relative;
+  margin-right: 0.3125rem;
+}
+
+._inner-div {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+._close {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+._close::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%) rotate(45deg);
+  width: 16px;
+  height: 2px;
+  background-color: #22C3CA;
+}
+._close::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%) rotate(-45deg);
+  width: 16px;
+  height: 2px;
+  background-color: #22C3CA;
 }
 
 .row:after {
@@ -1448,6 +1505,7 @@ body.ie ._ibg img {
   align-items: center;
 }
 .main-header__search {
+  flex: 0 0 2rem;
   font-size: 32px;
   padding-left: 16px;
   padding-right: 16px;
