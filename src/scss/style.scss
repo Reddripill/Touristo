@@ -74,7 +74,6 @@ body {
 ._container {
 	max-width: rem($maxWidthContainer);
 	margin: 0 auto;
-	// padding: 0 $containerPadding + px;
 }
 
 @media(max-width: 319px) {
@@ -108,7 +107,6 @@ body {
 .main-header {
 	background: url(../img/mainBackground.jpg) 0 bottom/cover no-repeat;
 	padding-top: rem(190);
-	margin-bottom: 150px;
 	@media(max-width : em(1070)){
 		padding-top: rem(120);
 	}

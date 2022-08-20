@@ -1,0 +1,130 @@
+.footer {
+	padding: rem(100) 0;
+	@media(max-width : $tablet){
+		padding: rem(40) 0;
+	}
+	&__container {
+		padding: 0 rem(16);
+	}
+
+	&__body {
+		@media(min-width : em(1170)){
+			display: grid;
+			grid-template-columns: rem(200) 1fr;
+			column-gap: rem(135);
+			@media(max-width : em(1231)){
+				column-gap: rem(70);
+			}
+		}
+	}
+
+	&__info {
+	}
+
+	&__menu {
+	}
+}
+
+.info-footer {
+	@media(max-width : em(1170)){
+		max-width: rem(200);
+		margin-bottom: rem(40);
+	}
+	&__contacts {
+		margin-bottom: rem(40);
+	}
+
+	&__row {
+		display: flex;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: math.div(24, 16) * 100%;
+		a{
+			color: $blueColor;
+			text-decoration: underline;
+		}
+		&::before {
+			padding: rem(3) 0px 0px 0px;
+			margin-right: rem(8);
+		}
+		&:not(:last-child) {
+			margin-bottom: 1em;
+		}
+	}
+
+	&__societies {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__link {
+		flex: 0 0 rem(40);
+		height: rem(40);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 2px solid $blueColor;
+		border-radius: 50%;
+		color: #fff;
+		background-color: $blueColor;
+		font-size: rem(22);
+		transition: all 0.3s ease 0s;
+		cursor: pointer;
+		@media(any-hover : hover){
+			&:hover {
+				color: $blueColor;
+				background-color: #fff;
+			}
+		}
+	}
+}
+
+
+.menu-footer {
+	@media(min-width : $mobile){
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: rem(32);
+	}
+	&__item {
+		@media(min-width : $mobile){
+			flex: 0 0 prc(192, 1008);
+		}
+		@media(max-width : $mobile){
+			&:not(:last-child) {
+				margin-bottom: rem(40);
+			}
+		}
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-weight: 500;
+		font-size: rem(12);
+		line-height: math.div(16, 12) * 100%;
+		letter-spacing: rem(0.8);
+		color: $blueColor;
+		padding: 0px 0px rem(6) 0px;
+		border-bottom: 2px solid #F7F5F5;
+		margin-bottom: math.div(8, 12) * 1em;
+	}
+
+	&__list {
+		& > li {
+			margin-bottom: rem(10);
+		}
+	}
+
+	&__link {
+		font-size: rem(14);
+		line-height: math.div(14, 24) * 100%;
+		color: rgba(53, 66, 75, 1);
+		transition: all 0.3s ease 0s;
+		@media(any-hover : hover){
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}

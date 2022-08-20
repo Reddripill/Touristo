@@ -224,6 +224,7 @@ button::-moz-focus-inner {
 
 a {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
 }
 
 a,
@@ -1354,6 +1355,103 @@ body.ie ._ibg img {
   display: none;
 }
 
+.footer {
+  padding: 6.25rem 0;
+}
+
+.footer__container {
+  padding: 0 1rem;
+}
+
+.info-footer__contacts {
+  margin-bottom: 2.5rem;
+}
+
+.info-footer__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+.info-footer__row a {
+  color: #22C3CA;
+  text-decoration: underline;
+}
+
+.info-footer__row::before {
+  padding: 0.1875rem 0px 0px 0px;
+  margin-right: 0.5rem;
+}
+
+.info-footer__row:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.info-footer__societies {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.info-footer__link {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 2.5rem;
+          flex: 0 0 2.5rem;
+  height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #22C3CA;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #22C3CA;
+  font-size: 1.375rem;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.menu-footer__title {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.75rem;
+  line-height: 133.3333333333%;
+  letter-spacing: 0.05rem;
+  color: #22C3CA;
+  padding: 0px 0px 0.375rem 0px;
+  border-bottom: 2px solid #F7F5F5;
+  margin-bottom: 0.6666666667em;
+}
+
+.menu-footer__list > li {
+  margin-bottom: 0.625rem;
+}
+
+.menu-footer__link {
+  font-size: 0.875rem;
+  line-height: 58.3333333333%;
+  color: rgb(53, 66, 75);
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
 .page {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -1365,7 +1463,6 @@ body.ie ._ibg img {
 
 .main-header {
   padding-top: 11.875rem;
-  margin-bottom: 150px;
 }
 
 .main-header__container {
@@ -1786,11 +1883,40 @@ body.ie ._ibg img {
        -moz-column-gap: 52px;
             column-gap: 52px;
   }
+
+  .menu-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-column-gap: 2rem;
+       -moz-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+
+  .menu-footer__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 19.0476190476%;
+            flex: 0 0 19.0476190476%;
+  }
 }
 
 @media (min-width: 66.875em) {
   .descriptor-main__showhide._active {
     margin-top: -45px;
+  }
+}
+
+@media (min-width: 73.125em) {
+  .footer__body {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 12.5rem 1fr;
+    grid-template-columns: 12.5rem 1fr;
+    -webkit-column-gap: 8.4375rem;
+       -moz-column-gap: 8.4375rem;
+            column-gap: 8.4375rem;
   }
 }
 
@@ -1940,6 +2066,13 @@ body.ie ._ibg img {
   }
 }
 
+@media (max-width: 73.125em) {
+  .info-footer {
+    max-width: 12.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
 @media (max-width: 68.75em) {
   .range-descriptor input::-webkit-input-placeholder {
     font-size: 0.875rem;
@@ -1982,6 +2115,12 @@ body.ie ._ibg img {
 
   .slider-descriptor__between {
     padding-bottom: 0.3125rem;
+  }
+}
+
+@media (max-width: 61.99875em) {
+  .footer {
+    padding: 2.5rem 0;
   }
 }
 
@@ -2154,6 +2293,10 @@ body.ie ._ibg img {
     text-transform: none;
   }
 
+  .menu-footer__item:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+
   .main-header__container {
     min-height: 24.5rem;
   }
@@ -2200,6 +2343,14 @@ body.ie ._ibg img {
   }
 }
 
+@media (min-width: 73.125em) and (max-width: 76.9375em) {
+  .footer__body {
+    -webkit-column-gap: 4.375rem;
+       -moz-column-gap: 4.375rem;
+            column-gap: 4.375rem;
+  }
+}
+
 @media (any-hover: hover) {
   ._btn:hover {
     background-color: transparent;
@@ -2214,6 +2365,15 @@ body.ie ._ibg img {
   ._circle:hover {
     color: #22C3CA;
     background-color: #fff;
+  }
+
+  .info-footer__link:hover {
+    color: #22C3CA;
+    background-color: #fff;
+  }
+
+  .menu-footer__link:hover {
+    text-decoration: underline;
   }
 }
 
