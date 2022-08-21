@@ -171,3 +171,11 @@ function createElement(before) {
 	})
 }
 
+const fixedHeader = document.querySelector('.header__body')
+window.addEventListener('scroll', function () {
+	if (window.pageYOffset >= 512 && body.classList.contains('_touch')) {
+		fixedHeader.style.backgroundColor = 'rgb(235, 231, 231)';
+	} else {
+		fixedHeader.style.backgroundColor = '#fff';
+	}
+})

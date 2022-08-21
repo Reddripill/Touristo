@@ -8,13 +8,10 @@
 	}
 
 	&__body {
-		@media(min-width : em(1170)){
+		@media(min-width : $tablet){
 			display: grid;
 			grid-template-columns: rem(200) 1fr;
-			column-gap: rem(135);
-			@media(max-width : em(1231)){
-				column-gap: rem(70);
-			}
+			@include adaptive-value('column-gap', 135, 0, 1);
 		}
 	}
 

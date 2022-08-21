@@ -226,7 +226,7 @@ body {
 		bottom: 0;
 		right: 0;
 		transform: translate(0, 50%);
-		@media(max-width : $mobile){
+		@media(max-width : $tablet){
 			font-size: rem(23);
 			width: rem(48);
 			height: rem(48);
