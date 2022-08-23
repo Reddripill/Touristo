@@ -67,3 +67,17 @@ content: "\e90c";
 ._icon-www::before {
 content: "\e90d";
 }
+._icon-starBorder::before {
+	content: "\e90e";
+}
+._icon-starFull::before {
+	content: "\e90f";
+}
+._icon-bus::before {
+	content: "\e910";
+	font-weight: bold;
+}
+._icon-train::before {
+	content: "\e911";
+	font-weight: bold;
+}

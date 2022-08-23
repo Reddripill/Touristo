@@ -11,6 +11,13 @@
 	font-weight: bold;
 	border: 2px solid $blueColor;
 	transition: all 0.3s ease 0s;
+	@include adaptive-value('padding-left', 48, 20, 1);
+	@include adaptive-value('padding-right', 48, 20, 1);
+	margin: 0 auto;
+	font-size: rem(14);
+	@media(max-width : $mobile){
+		font-size: rem(12);
+	}
 	@media(any-hover : hover){
 		&:hover {
 			background-color: transparent;
