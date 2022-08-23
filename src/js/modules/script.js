@@ -175,7 +175,7 @@ window.addEventListener('load', function (event) {
 			el.classList.toggle('_active');
 		}
 		if (el.closest('.cards__checkbox input')) {
-			el.classList.toggle('_active')
+			el.classList.toggle('_active');
 		}
 	})
 })
