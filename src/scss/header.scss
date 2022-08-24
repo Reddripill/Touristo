@@ -222,6 +222,7 @@
 		z-index: 3;
 		width: 30px;
 		height: 18px;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
 		cursor: pointer;
 		&::after,
 		&::before,

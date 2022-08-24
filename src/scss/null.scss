@@ -59,14 +59,14 @@ button {
 	cursor: pointer;
 	background-color: inherit;
 	outline: none;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Убирает отображение нажатия
+	// -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+	// Убирает отображение нажатия
 }
 button::-moz-focus-inner {
 	padding: 0;
 	border: 0;
 }
 a {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	color: $mainColor;
 	text-decoration: none;
 }

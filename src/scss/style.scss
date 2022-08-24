@@ -498,6 +498,9 @@ body {
 		@media(max-width : $tablet){
 			margin-bottom: rem(14);
 		}
+		&::-webkit-scrollbar {
+			width: 0;
+		}
 	}
 
 	&__places {
@@ -528,11 +531,11 @@ body {
 		}
 	}
 
-	&__cards {
-	}
+	/* &__cards {
+	} */
 
-	&__btn {
-	}
+	/* &__btn {
+	} */
 }
 
 .cards {

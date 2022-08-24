@@ -232,7 +232,6 @@ button {
   cursor: pointer;
   background-color: inherit;
   outline: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 button::-moz-focus-inner {
@@ -241,7 +240,6 @@ button::-moz-focus-inner {
 }
 
 a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   color: #35424B;
   text-decoration: none;
 }
@@ -1877,6 +1875,13 @@ body.ie ._ibg img {
   background-color: #22C3CA;
 }
 
+.sale-page {
+  /* &__cards {
+  } */
+  /* &__btn {
+  } */
+}
+
 .sale-page__container {
   padding: 0 1rem;
 }
@@ -1894,6 +1899,10 @@ body.ie ._ibg img {
   display: flex;
   overflow: auto;
   margin-bottom: 1.375rem;
+}
+
+.sale-page__overflow::-webkit-scrollbar {
+  width: 0;
 }
 
 .sale-page__places {
@@ -2510,6 +2519,7 @@ body.ie ._ibg img {
     z-index: 3;
     width: 30px;
     height: 18px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     cursor: pointer;
   }
 
