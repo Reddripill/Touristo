@@ -13,7 +13,7 @@
 //<Иконочные шрифты>==========================================================================================
 @import "icons";
 //</Иконочные шрифты>==========================================================================================
-
+@import "../../node_modules/swiper/swiper-bundle";
 //<Шрифт по умолчанию>==========================================================================================
 $fontFamily: "Ubuntu";
 $fontSize: rem(16);
@@ -25,7 +25,7 @@ $fontSize: rem(16);
 $minWidth: 320;
 $maxWidth: 1440;
 $containerWidth: 1345;
-$containerPadding: 30;
+$containerPadding: 15;
 $maxWidthContainer: $containerWidth + $containerPadding;
 $pc: em($maxWidthContainer);
 $tablet: em(991.98);
@@ -44,16 +44,6 @@ body {
 	color: $mainColor;
 	&._lock {
 		overflow: hidden;
-	}
-	&._touch ._btn {
-		&:active {
-			background-color: transparent;
-			color: $blueColor;
-		}
-		&._white:active {
-			background-color: transparent;
-			color: #fff;
-		}
 	}
 }
 //</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
@@ -74,6 +64,10 @@ body {
 ._container {
 	max-width: rem($maxWidthContainer);
 	margin: 0 auto;
+	padding: 0 rem(15);
+	@media(max-width : $mobile){
+		padding: 0 rem(8);
+	}
 }
 
 @media(max-width: 319px) {
@@ -97,10 +91,13 @@ body {
 //<ОСНОВНОЙ БЛОК>====================================================================================================
 .page {
 	flex: 1 1 auto;
-	&__main{
-	}
-	&__sale {
-	}
+	min-width: 0;
+	/* &__main{
+	} */
+	/* &__sale {
+	} */
+	/* &__distribute {
+	} */
 }
 //===================================================================================================================================
 
@@ -475,12 +472,18 @@ body {
 
 
 
-
-
-
 .sale-page {
-
+	margin-bottom: rem(80);
+	@media(max-width : $tablet){
+		margin-bottom: rem(24);
+	}
 	&__container {
+		@media(max-width : $mobile){
+			padding-right: 0;
+		}
+	}
+
+	&__wrapper {
 		padding: 0 rem(16);
 	}
 
@@ -489,6 +492,9 @@ body {
 		font-size: rem(32);
 		line-height: math.div(48, 32) * 100%;
 		margin-bottom: math.div(24, 32) * 1em;
+		@media(max-width : $mobile){
+			padding-right: rem(8);
+		}
 	}
 
 	&__overflow {
@@ -497,6 +503,9 @@ body {
 		margin-bottom: rem(22);
 		@media(max-width : $tablet){
 			margin-bottom: rem(14);
+		}
+		@media(max-width : $mobile){
+			margin-right: rem(-16);
 		}
 		&::-webkit-scrollbar {
 			width: 0;
@@ -534,16 +543,37 @@ body {
 	/* &__cards {
 	} */
 
-	/* &__btn {
-	} */
+	&__btn {
+		@media(max-width : $mobile){
+			padding-right: rem(8);
+		}
+	}
+
+	&__pagination {
+		@media(max-width : $mobile){
+			text-align: center;
+			font-weight: 500;
+			color: $blueColor;
+			font-size: rem(16);
+			line-height: 1em;
+			margin-bottom: rem(32);
+			padding-right: rem(8);
+		}
+	}
 }
 
 .cards {
 	margin-bottom: rem(64);
+	@media(max-width : $mobile){
+		margin-right: rem(-16);
+		margin-bottom: rem(32);
+	}
 	&__body {
-		display: grid;
-		gap: rem(32);
-		grid-template-columns: repeat(auto-fit, minmax(rem(272), 1fr));
+		@media(min-width : $mobile){
+			display: grid;
+			gap: rem(32);
+			grid-template-columns: repeat(auto-fit, minmax(rem(272), 1fr));
+		}
 	}
 
 	&__item {
@@ -636,7 +666,7 @@ body {
 		gap: rem(16) rem(20);
 		margin-bottom: rem(16);
 		@media(max-width : $mobile){
-			gap: rem(8) rem(10);
+			gap: rem(8) rem(4);
 		}
 	}
 
@@ -647,7 +677,12 @@ body {
 		column-gap: rem(8);
 		font-size: rem(12);
 		line-height: math.div(16, 12) * 100%;
+		@media(max-width : $mobile){
+			column-gap: rem(2);
+		}
 		p {
+			display: inline-block;
+			flex: 1 1 100%;
 			font-size: rem(10);
 		}
 	}
@@ -666,6 +701,9 @@ body {
 	&__star {
 		font-size: rem(20);
 		color: $blueColor;
+		@media(max-width : $mobile){
+			font-size: rem(16);
+		}
 	}
 
 	&__price {
@@ -717,5 +755,141 @@ body {
 		line-height: math.div(16, 12) * 100%;
 		color: $blueColor;
 		border-bottom: 2px dotted $blueColor;
+	}
+}
+
+
+
+.distribute-page {
+	background-color: $blueColor;
+	/* &__container {
+	} */
+
+	&__wrapper {
+		padding: rem(40) rem(16);
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: rem(32);
+		line-height: math.div(48, 32) * 100%;
+		color: #fff;
+		margin-bottom: 1em;
+	}
+
+	&__body {
+		margin-bottom: rem(16);
+		display: flex;
+		flex-wrap: wrap;
+		position: relative;
+		@media(min-width : $tablet){
+			column-gap: prc(140, 1343);
+		}
+	}
+
+	&__item {
+		flex: 1 1 50%;
+		&_sms {
+			@media(min-width : $tablet){
+				flex: 0 0 prc(416, 1343);
+			}
+			.distribute-page__input {
+				@media(max-width : $tablet){
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	&__type {
+		font-weight: 500;
+		font-size: rem(24);
+		line-height: math.div(32, 24) * 100%;
+		color: #fff;
+		margin-bottom: rem(16);
+		p {
+			display: inline; 
+		}
+	}
+
+	&__input {
+		display: flex;
+		align-items: center;
+		column-gap: rem(10);
+	}
+
+	&__icon {
+		font-size: rem(24);
+		margin-left: rem(24);
+	}
+
+	&__field {
+		flex: 1 1 auto;
+		&::placeholder {
+			color: $mainColor;
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: math.div(24, 16) * 100%;
+		}
+	}
+
+	&__subscribe {
+		font-size: rem(12);
+		line-height: math.div(16, 12) * 100%;
+		font-weight: 500;
+		letter-spacing: rem(0.8);
+		color: $blueColor;
+		text-transform: uppercase;
+		margin-right: rem(32);
+		transition: hover 0.3s ease 0s;
+		@media(any-hover : hover){
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		@media(max-width : $tablet){
+			display: none;
+		}
+	}
+
+	&__addition {
+		font-size: rem(14);
+		line-height: math.div(24, 14) * 100%;
+		color: #fff;
+		@media(max-width : $tablet){
+			margin-bottom: rem(20);
+		}
+	}
+
+	&__btn {
+		@media(min-width : $tablet){
+			display: none;
+		}
+	}
+}
+
+.page {
+
+	&__slider {
+		margin: rem(50) 0;
+	}
+
+	&__wrapper {
+		text-align: center;
+	}
+
+	&__slide {
+	}
+
+	&__image {
+		width: 600px;
+		margin: 0 auto;
+		img {
+			width: 100%;
+			height: 100%;
+		}
 	}
 }

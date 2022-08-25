@@ -5,13 +5,12 @@
 	z-index: 50;
 	width: 100%;
 	&__container {
-		@include adaptive-value('padding-left', $containerPadding, 8, 1);
-		@include adaptive-value('padding-right', $containerPadding, 8, 1);
 		@media(max-width : $mobile){
 			padding: 0 8px;
-			transition: padding 0.3s ease 0s;
+			transition: all 0.3s ease 0s;
 			&._active {
 				padding: 0;
+				background-color: rgba(0, 0, 0, 0.9);
 			}
 		}
 	}
@@ -23,6 +22,7 @@
 		min-height: rem(95);
 		display: flex;
 		align-items: center;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 		@media(max-width : $mobile){
 			min-height: rem(72);
 		}
