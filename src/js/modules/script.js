@@ -177,6 +177,26 @@ window.addEventListener('load', function (event) {
 		if (el.closest('.cards__checkbox input')) {
 			el.classList.toggle('_active');
 		}
+		if (el.closest('.distribute-page__type_always p')) {
+			if (window.innerWidth <= 991) {
+				if (el.classList.contains('distribute-page__enable')) {
+					if (!el.classList.contains('_active')) {
+						el.previousElementSibling.classList.remove('_active');
+						el.classList.add('_active');
+						document.querySelector('.distribute-page__input_enable').classList.add('_active');
+						document.querySelector('.distribute-page__input').classList.remove('_active');
+					}
+				} else {
+					if (!el.classList.contains('_active')) {
+						el.nextElementSibling.classList.remove('_active');
+						el.classList.add('_active');
+						document.querySelector('.distribute-page__input_enable').classList.remove('_active');
+						document.querySelector('.distribute-page__input').classList.add('_active');
+					}
+				}
+			}
+		}
 	})
+
 })
 

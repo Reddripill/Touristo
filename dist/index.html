@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220825193858">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220826204907">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title>Главная</title>
 </head>
@@ -475,7 +475,7 @@
 					</div>
 				</div>
 			</section>
-			<!-- <section class="page__distribute distribute-page">
+			<section class="page__distribute distribute-page">
 				<div class="distribute-page__container _container">
 					<div class="distribute-page__wrapper">
 						<div class="distribute-page__title">
@@ -483,20 +483,21 @@
 						</div>
 						<div class="distribute-page__body">
 							<div class="distribute-page__item">
-								<div class="distribute-page__type">
-									<p>По email:</p>
+								<div class="distribute-page__type distribute-page__type_always">
+									<p class="_active">По email:</p>
+									<p class="distribute-page__enable">По смс:</p>
 								</div>
-								<div class="distribute-page__input _input">
+								<div class="distribute-page__input distribute-page__input_main _input _active">
 									<div class="distribute-page__icon _icon-email"></div>
 									<input type="email" class="distribute-page__field" placeholder="Ваш email адрес">
 									<a href="#" class="distribute-page__subscribe">подписаться</a>
 								</div>
 							</div>
 							<div class="distribute-page__item distribute-page__item_sms">
-								<div class="distribute-page__type">
+								<div class="distribute-page__type distribute-page__type_hidden">
 									<p>По смс:</p>
 								</div>
-								<div class="distribute-page__input _input">
+								<div class="distribute-page__input distribute-page__input_enable _input">
 									<div class="distribute-page__icon _icon-mobile"></div>
 									<input type="email" class="distribute-page__field" placeholder="Ваш номер телефона">
 									<a href="#" class="distribute-page__subscribe">подписаться</a>
@@ -508,7 +509,7 @@
 						<button class="distribute-page__btn _btn _btn_white">Подписаться </button>
 					</div>
 				</div>
-			</section> -->
+			</section>
 		</main>
 		<footer class="footer">
 	<div class="footer__container _container">
@@ -577,7 +578,7 @@
 </footer>
 	</div>
 	
-	<script src="js/app.min.js?_v=20220825193858"></script>
+	<script src="js/app.min.js?_v=20220826204907"></script>
 </body>
 
 </html>

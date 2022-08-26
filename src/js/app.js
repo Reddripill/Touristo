@@ -38,5 +38,5 @@ function initSwiperOnMobile() {
 initSwiperOnMobile();
 window.addEventListener('resize', () => {
 	initSwiperOnMobile();
-	console.log('Norm');
 });
+
