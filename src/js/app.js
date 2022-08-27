@@ -7,12 +7,12 @@ flsFunctions.isWebp();
 flsFunctions.ibg();
 
 
-let init = false;
+let initPhone = false;
 let salePageCards;
 function initSwiperOnMobile() {
 	if (window.innerWidth <= 768) {
-		if (!init) {
-			init = true;
+		if (!initPhone) {
+			initPhone = true;
 			salePageCards = new Swiper('.sale-page__cards', {
 				navigation: {
 					// nextEl: '.swiper-button-next',
@@ -20,7 +20,6 @@ function initSwiperOnMobile() {
 				},
 				pagination: {
 					el: '.sale-page__pagination',
-					clickable: true,
 					type: 'fraction',
 				},
 				slidesPerView: 1.08,
@@ -30,13 +29,36 @@ function initSwiperOnMobile() {
 				modules: [Navigation, Pagination],
 			});
 		}
-	} else if (init) {
+	} else if (initPhone) {
 		salePageCards.destroy();
-		init = false;
+		initPhone = false;
+	}
+}
+let initBigDevice;
+function initSwiperOnBigDevice() {
+	if (window.innerWidth <= 1170) {
+		if (!initBigDevice) {
+			initBigDevice = true;
+			salePageCards = new Swiper('.suggestions-page__body', {
+				pagination: {
+					el: '.suggestions-page__pagination',
+				},
+				slidesPerView: 1.13,
+				spaceBetween: 16,
+				watchOverflow: true,
+				loop: true,
+				modules: [Navigation, Pagination],
+			});
+		}
+	} else if (initBigDevice) {
+		salePageCards.destroy();
+		initBigDevice = false;
 	}
 }
 initSwiperOnMobile();
+initSwiperOnBigDevice();
 window.addEventListener('resize', () => {
 	initSwiperOnMobile();
+	initSwiperOnBigDevice();
 });
 

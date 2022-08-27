@@ -174,8 +174,8 @@ window.addEventListener('load', function (event) {
 		if (el.classList.contains('sale-page__place')) {
 			el.classList.toggle('_active');
 		}
-		if (el.closest('.cards__checkbox input')) {
-			el.classList.toggle('_active');
+		if (el.closest('.cards__checkbox')) {
+			el.closest('.cards__checkbox').classList.toggle('_active');
 		}
 		if (el.closest('.distribute-page__type_always p')) {
 			if (window.innerWidth <= 991) {
