@@ -34,12 +34,15 @@ function initSwiperOnMobile() {
 		initPhone = false;
 	}
 }
-let initBigDevice;
+
+let suggestions;
+let initBigDevice = false;
+
 function initSwiperOnBigDevice() {
 	if (window.innerWidth <= 1170) {
 		if (!initBigDevice) {
 			initBigDevice = true;
-			salePageCards = new Swiper('.suggestions-page__body', {
+			suggestions = new Swiper('.suggestions-page__body', {
 				pagination: {
 					el: '.suggestions-page__pagination',
 				},
@@ -51,10 +54,37 @@ function initSwiperOnBigDevice() {
 			});
 		}
 	} else if (initBigDevice) {
-		salePageCards.destroy();
+		suggestions.destroy();
 		initBigDevice = false;
 	}
 }
+
+let reports = new Swiper('.report-page__body', {
+	slidesPerView: 3,
+	spaceBetween: 80,
+	watchOverflow: true,
+	loop: false,
+	navigation: {
+		nextEl: '.report-page__arrow_next',
+		prevEl: '.report-page__arrow_prev'
+	},
+	pagination: {
+		el: '.report-page__pagination'
+	},
+	breakpoints: {
+		320: {
+			slidesPerView: 1,
+		},
+		800: {
+			slidesPerView: 2,
+		},
+		1390: {
+			slidesPerView: 3,
+		}
+	},
+	modules: [Navigation, Pagination],
+});
+
 initSwiperOnMobile();
 initSwiperOnBigDevice();
 window.addEventListener('resize', () => {

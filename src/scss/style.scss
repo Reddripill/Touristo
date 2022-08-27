@@ -25,7 +25,7 @@ $fontSize: rem(16);
 $minWidth: 320;
 $maxWidth: 1440;
 $containerWidth: 1345;
-$containerPadding: 15;
+$containerPadding: 30;
 $maxWidthContainer: $containerWidth + $containerPadding;
 $pc: em($maxWidthContainer);
 $tablet: em(991.98);
@@ -99,6 +99,8 @@ body {
 	/* &__distribute {
 	} */
 	/* &__suggestions {
+	} */
+	/* &__report {
 	} */
 }
 //===================================================================================================================================
@@ -1034,5 +1036,105 @@ body {
 		.swiper-pagination-bullet-active {
 			background-color: $blueColor;
 		}
+	}
+}
+
+
+
+.report-page {
+	margin-bottom: rem(80);
+	&__container {
+		max-width: rem(1390);
+		padding: 0 rem(15);
+		margin: 0 auto;
+	}
+
+
+	&__body {
+		max-width: rem(1264);
+		margin: 0 auto;
+		position: relative;
+	}
+
+	&__main {
+		position: relative;
+	}
+
+	&__header__title {
+		margin-bottom: math.div(55, 32) * 1em;
+	}
+
+	&__arrow {
+		display: none;
+		@media(min-width : $pc){
+			position: absolute;
+			top: 50%;
+			height: rem(48);
+			width: rem(48);
+			border-radius: 50%;
+			background-color: $blueColor;
+			transform: translate(0, -50%);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-size: rem(20);
+			z-index: 5;
+			cursor: pointer;
+			&_prev {
+				left: rem(-8);
+			}
+			&_next {
+				right: rem(-8);
+				&::before {
+					transform: rotate(180deg);
+				}
+			}
+			&.swiper-button-disabled {
+				background-color: #22c2ca74;
+			}
+		}
+	}
+
+	&__pagination {
+		display: flex;
+		justify-content: center;
+		margin-top: rem(50);
+		span {
+			height: rem(8);
+			width: rem(8);
+		}
+		.swiper-pagination-bullet {
+			border: 1px solid $blueColor;
+			background-color: transparent;
+			opacity: 1;
+		}
+		.swiper-pagination-bullet-active {
+			background-color: $blueColor;
+		}
+		/* &.swiper-pagination-bullet-active {
+
+		} */
+		@media(min-width : $pc){
+			display: none;
+		}
+	}
+
+	&__content {
+	}
+
+	&__item {
+	}
+
+	&__title {
+		font-size: rem(16);
+		line-height: math.div(24, 16) * 100%;
+		font-weight: 500;
+		margin-bottom: math.div(24, 16) * 1em;
+	}
+
+	&__text {
+		font-size: rem(14);
+		line-height: math.div(24, 14) * 100%;
 	}
 }
