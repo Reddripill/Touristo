@@ -115,7 +115,7 @@ window.addEventListener('load', function (event) {
 	async function getCards(button) {
 		if (!button.classList.contains('_hold')) {
 			button.classList.add('_hold');
-			let response = await fetch('../json/cards.json');
+			let response = await fetch('json/cards.json');
 			if (response.ok) {
 				let result = await response.json();
 				initCards(result);

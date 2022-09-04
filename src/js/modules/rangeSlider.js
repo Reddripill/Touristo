@@ -10,7 +10,7 @@ function setLeftThumbValue() {
 	const inputMax = parseInt(inputThumbLeft.max);
 	const daysFrom = document.querySelector('.range-slider__days_from span'); // Для проекта
 
-	inputThumbLeft.value = Math.min(parseInt(inputThumbLeft.value), parseInt(inputThumbRight.value) - 1);
+	inputThumbLeft.value = Math.min(parseInt(inputThumbLeft.value), parseInt(inputThumbRight.value) - 7);
 	let percent = ((inputThumbLeft.value - inputMin) / (inputMax - inputMin)) * 100;
 
 	range.style.left = percent + '%';
@@ -24,7 +24,7 @@ function setRightThumbValue() {
 	const inputMax = parseInt(inputThumbRight.max);
 	const daysTo = document.querySelector('.range-slider__days_to span'); // Для проекта
 
-	inputThumbRight.value = Math.max(parseInt(inputThumbRight.value), parseInt(inputThumbLeft.value) + 1);
+	inputThumbRight.value = Math.max(parseInt(inputThumbRight.value), parseInt(inputThumbLeft.value) + 7);
 	let percent = ((inputThumbRight.value - inputMin) / (inputMax - inputMin)) * 100;
 
 	range.style.right = (100 - percent) + '%';
