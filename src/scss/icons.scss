@@ -25,6 +25,10 @@
 	}
 }
 
+
+._icon-arrow-down::before {
+	content: "\e912";
+}
 ._icon-arrow::before {
 	content: "\e900";
 }

@@ -98,6 +98,8 @@
 }
 
 .actions-header {
+	flex: 1 0 prc(415, 1345);
+	justify-content: flex-end;
 	display: flex;
 	align-items: center;
 	@media(min-width : $mobile){
@@ -147,6 +149,7 @@
 		font-size: rem(15);
 		font-weight: bold;
 		color: #000;
+		white-space: nowrap;
 		@media(max-width : 1185px){
 			font-size: rem(12);
 		}

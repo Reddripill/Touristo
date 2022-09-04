@@ -47,7 +47,7 @@
 	@media(max-width : $mobile){
 		height: rem(56);
 	}
-	input[type="text"] {
+	& > input {
 		height: 100%;
 		width: 100%;
 		border-radius: 8px;
