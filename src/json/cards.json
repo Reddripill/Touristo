@@ -1,0 +1,108 @@
+{
+	"cards": [
+		{
+			"image": "cardsImg8.jpg",
+			"labels": [
+				{
+					"type": "sale",
+					"text": "Распродажа"
+				}
+			],
+			"id": "103988",
+			"title": "Golden Beach Palms Resort 4*",
+			"country": "о. Бали, Денпасар",
+			"dates": "16-26 Ноября (20 ночей)",
+			"visa": "Без визы",
+			"transport": {
+				"type": "train",
+				"text": "Выезд из Крыма"
+			},
+			"hotelStars": "3",
+			"food": "Завтраки + ужины",
+			"price": {
+				"rub": "5000",
+				"euro": "100"
+			}
+		},
+		{
+			"image": "cardsImg8.jpg",
+			"labels": [
+				{
+					"type": "sale",
+					"text": "Распродажа"
+				},
+				{
+					"type": "new",
+					"text": "Новый"
+				}
+			],
+			"id": "103989",
+			"title": "Golden Beach Palms Resort 4*",
+			"country": "о. Бали, Денпасар",
+			"dates": "16-26 Ноября (20 ночей)",
+			"visa": "Без визы",
+			"transport": {
+				"type": "train",
+				"text": "Выезд из Крыма"
+			},
+			"hotelStars": "4",
+			"food": "Завтраки + ужины",
+			"price": {
+				"rub": "5000",
+				"euro": "100"
+			}
+		},
+		{
+			"image": "cardsImg8.jpg",
+			"labels": [
+				{
+					"type": "new",
+					"text": "Новый"
+				}
+			],
+			"id": "103990",
+			"title": "Golden Beach Palms Resort 4*",
+			"country": "о. Бали, Денпасар",
+			"dates": "16-26 Ноября (20 ночей)",
+			"visa": "Без визы",
+			"transport": {
+				"type": "train",
+				"text": "Выезд из Крыма"
+			},
+			"hotelStars": "4",
+			"food": "Завтраки + ужины",
+			"price": {
+				"rub": "5000",
+				"euro": "100"
+			}
+		},
+		{
+			"image": "cardsImg8.jpg",
+			"labels": [
+				{
+					"type": "sale",
+					"text": "Распродажа"
+				},
+				{
+					"type": "new",
+					"text": "Новый"
+				}
+			],
+			"id": "103991",
+			"title": "Golden Beach Palms Resort 4*",
+			"country": "о. Бали, Денпасар",
+			"dates": "16-26 Ноября (20 ночей)",
+			"visa": "Без визы",
+			"transport": {
+				"type": "train",
+				"text": "Выезд из Крыма"
+			},
+			"hotelStars": "4",
+			"food": "Завтраки + ужины",
+			"price": {
+				"rub": "5000",
+				"euro": "100"
+			}
+		}
+	]
+}
