@@ -155,10 +155,26 @@ body {
 		}
 	}
 
+	&__submit {
+		margin: 0 rem(16);
+		position: relative;
+		&_button {
+			height: rem(32);
+			width: rem(32);
+			background: transparent;
+			position: relative;
+			z-index: 3;
+			cursor: pointer;
+		} 
+	}
+
 	&__icon {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
 		font-size: rem(32);
 		color: $blueColor;
-		margin: 0 rem(16);
 		@media(max-width : $tablet){
 			font-size: rem(24);
 			margin: 0 rem(8);
@@ -166,6 +182,12 @@ body {
 	}
 
 	&__field {
+		opacity: 1;
+		visibility: visible;
+		&._hold {
+			opacity: 0;
+			visibility: hidden;
+		}
 	}
 
 	&__actions {

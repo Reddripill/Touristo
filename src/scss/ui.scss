@@ -47,7 +47,7 @@
 	@media(max-width : $mobile){
 		height: rem(56);
 	}
-	& > input {
+	& > input[type="text"] {
 		height: 100%;
 		width: 100%;
 		border-radius: 8px;
@@ -84,59 +84,41 @@
 	} 
 }
 
-
-._div {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border: 2px solid $blueColor;
-	padding: 0 rem(37) 0 rem(13);
-	border-radius: 48px;
-	font-weight: 500;
-	font-size: rem(16);
-	line-height: math.div(24, 16) * 1em;
-	position: relative;
-	margin-right: rem(8);
-}
-
-._inner-div {
-	width: 16px;
-	height: 16px;
-	position: absolute;
-	right: 10px;
-	top: 0;
-	top: 50%;
-	transform: translate(0, -50%);
-}
-
-._close {
-	position: relative;
-	width: 16px;
-	height: 16px;
-	cursor: pointer;
-	&::before {
-		content:'';
-		position: absolute;
-		right: 0;
-		top: 50%;
-		transform: translate(0, -50%) rotate(45deg);
-		width: 16px;
-		height: 2px;
-		background-color: $blueColor;
+._filter {
+	flex: 1 0 auto;
+	overflow: auto;
+	max-width: rem(500);
+	margin-right: rem(10);
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		height: 0;
+		width: 0;
 	}
-	&::after {
-		content:'';
-		position: absolute;
-		right: 0;
-		top: 50%;
-		transform: translate(0, -50%) rotate(-45deg);
-		width: 16px;
-		height: 2px;
-		background-color: $blueColor;
-		// transform: rotate(-45deg);
+	&__list {
+		display: flex;
+		align-items: center;
+		column-gap: rem(16);
+	}
+	&__item {
+		font-size: rem(16);
+		line-height: math.div(24, 16) * 100%;
+		font-weight: 500;
+		border: 2px solid #22C3CA;
+		border-radius: rem(46);
+		height: rem(40);
+		padding: 0 rem(13) 0 rem(16);
+		display: flex;
+		align-items: center;
+	}
+	&__close {
+		width: rem(14.5);
+		height: rem(15);
+		margin-left: rem(10);
+		color: $blueColor;
+		transform: translate(0, -2px);
+		cursor: pointer;
 	}
 }
-
 
 ._title {
 	font-weight: bold;

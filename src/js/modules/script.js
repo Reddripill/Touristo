@@ -108,8 +108,17 @@ window.addEventListener('load', function (event) {
 				}
 			}
 		}
+		if (el.closest('._filter__close')) {
+			el.closest('._filter__close').parentElement.remove();
+			if (!document.querySelector('._filter__item')) {
+				searchInput.setAttribute('placeholder', searchInputPlaceholder);
+			}
+			const blockInSearchItems = document.querySelectorAll('._filter__item');
+			if (blockInSearchItems.length <= 3 || blockInSearchItems == null) {
+				searchInput.classList.remove('_hold');
+			}
+		}
 	})
-
 
 	const allSuggestions = this.document.querySelector('.sale-page__btn');
 	async function getCards(button) {
@@ -262,4 +271,42 @@ window.addEventListener('load', function (event) {
 		event.preventDefault();
 		getCards(event.target);
 	})
+
+	const searchForm = this.document.forms.searchForm;
+	const searchInput = searchForm.elements.searchInput;
+	let searchInputPlaceholder = searchInput.placeholder;
+	initBlockInSearchField();
+	searchForm.addEventListener('submit', function (event) {
+		event.preventDefault();
+		const blockInSearch = document.querySelector('._filter__list');
+		const blockInSearchItem = document.createElement('div');
+		const blockInSearchClose = document.createElement('div');
+
+		blockInSearchItem.classList.add('_filter__item');
+		blockInSearchClose.classList.add('_filter__close');
+		blockInSearchClose.classList.add('_icon-close');
+		if (searchInput.value.length > 3 && searchInput.value.length <= 10) {
+			blockInSearchItem.textContent = searchInput.value;
+			blockInSearch.append(blockInSearchItem);
+			blockInSearchItem.append(blockInSearchClose);
+			searchInput.value = '';
+		}
+		if (document.querySelector('._filter__item')) {
+			const blockInSearchItems = document.querySelectorAll('._filter__item');
+			if (blockInSearchItems.length > 2) {
+				searchInput.classList.add('_hold')
+			}
+		}
+		if (document.contains(blockInSearchItem)) {
+			searchInput.removeAttribute('placeholder');
+		}
+	})
+	function initBlockInSearchField() {
+		const blockInSearch = document.createElement('div');
+		blockInSearch.classList.add('_filter');
+		searchInput.before(blockInSearch);
+		const blockInSearchList = document.createElement('div');
+		blockInSearchList.classList.add('_filter__list');
+		blockInSearch.append(blockInSearchList);
+	}
 })

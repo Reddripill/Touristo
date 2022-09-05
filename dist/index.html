@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220904160325">
+	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title>Главная</title>
 </head>
@@ -59,10 +59,14 @@
 							<div class="main-page__title">Куда отправимся?</div>
 							<div class="main-page__text">Вы можете осуществить поиск по нескольким направлениям одновременно
 							</div>
-							<div class="main-page__input _input">
-								<div class="main-page__icon _icon-search"></div>
-								<input type="text" class="main-page__field" placeholder="Страна, город, регион, отель">
-							</div>
+							<form action="#" name="searchForm" class="main-page__input _input">
+								<div class="main-page__submit">
+									<input type="submit" value="" class="main-page__submit_button">
+									<div class="main-page__icon _icon-search"></div>
+								</div>
+								<input name="searchInput" type="text" class="main-page__field"
+									placeholder="Страна, город, регион, отель">
+							</form>
 							<div class="main-page__description">
 								<div class="main-page__input_small addition-data">
 									<div class="addition-data__body _input">
@@ -130,7 +134,7 @@
 					<a href="#" class="main-page__phone _icon-Phone-Icon"></a>
 				</div>
 				<div class="main-page__image _ibg">
-					<picture><source srcset="img/mainBackground.webp" type="image/webp"><img src="img/mainBackground.jpg" alt="Главный фон"></picture>
+					<img src="img/mainBackground.jpg" alt="Главный фон">
 				</div>
 			</section>
 			<section class="page__sale sale-page">
@@ -155,7 +159,7 @@
 							<div class="cards__body swiper-wrapper">
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg1.webp" type="image/webp"><img src="img/cards/cardsImg1.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg1.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 											<label class="cards__label cards__label_new">Новый</label>
@@ -196,7 +200,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg2.webp" type="image/webp"><img src="img/cards/cardsImg2.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg2.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -236,7 +240,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg3.webp" type="image/webp"><img src="img/cards/cardsImg3.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg3.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -276,7 +280,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg4.webp" type="image/webp"><img src="img/cards/cardsImg4.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg4.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -316,7 +320,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg5.webp" type="image/webp"><img src="img/cards/cardsImg5.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg5.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -356,7 +360,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg6.webp" type="image/webp"><img src="img/cards/cardsImg6.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg6.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -396,7 +400,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg7.webp" type="image/webp"><img src="img/cards/cardsImg7.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg7.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -436,7 +440,7 @@
 								</div>
 								<div class="cards__item swiper-slide">
 									<div class="cards__image _ibg">
-										<picture><source srcset="img/cards/cardsImg8.webp" type="image/webp"><img src="img/cards/cardsImg8.jpg" alt="Пейзаж" class="cards__img"></picture>
+										<img src="img/cards/cardsImg8.jpg" alt="Пейзаж" class="cards__img">
 										<div class="cards__labels">
 											<label class="cards__label cards__label_sale">Распродажа</label>
 										</div>
@@ -524,7 +528,7 @@
 							<div class="suggestions-page__items swiper-wrapper">
 								<div class="suggestions-page__item swiper-slide">
 									<div class="suggestions-page__image _ibg">
-										<picture><source srcset="img/suggestions/suggestionImg1.webp" type="image/webp"><img src="img/suggestions/suggestionImg1.jpg" alt="Picture of suggestion"></picture>
+										<img src="img/suggestions/suggestionImg1.jpg" alt="Picture of suggestion">
 									</div>
 									<div class="suggestions-page__content">
 										<div class="suggestions-page__name">Свадьба за границей</div>
@@ -538,7 +542,7 @@
 								</div>
 								<div class="suggestions-page__item swiper-slide">
 									<div class="suggestions-page__image _ibg">
-										<picture><source srcset="img/suggestions/suggestionImg2.webp" type="image/webp"><img src="img/suggestions/suggestionImg2.jpg" alt="Picture of suggestion"></picture>
+										<img src="img/suggestions/suggestionImg2.jpg" alt="Picture of suggestion">
 									</div>
 									<div class="suggestions-page__content">
 										<div class="suggestions-page__name">Shopping туры в Дубае</div>
@@ -716,7 +720,7 @@
 </footer>
 	</div>
 	
-	<script src="js/app.min.js?_v=20220904160325"></script>
+	<script src="js/app.min.js"></script>
 </body>
 
 </html>
