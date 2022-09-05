@@ -158,6 +158,8 @@ body {
 	&__submit {
 		margin: 0 rem(16);
 		position: relative;
+		height: rem(32);
+		width: rem(32);
 		&_button {
 			height: rem(32);
 			width: rem(32);
@@ -166,6 +168,11 @@ body {
 			z-index: 3;
 			cursor: pointer;
 		} 
+		@media(max-width : $mobile){
+			margin-right: rem(8);
+			height: rem(24);
+			width: rem(24);
+		}
 	}
 
 	&__icon {
@@ -175,9 +182,11 @@ body {
 		z-index: 2;
 		font-size: rem(32);
 		color: $blueColor;
-		@media(max-width : $tablet){
+		&::before {
+			display: inline-block;
+		}
+		@media(max-width : $mobile){
 			font-size: rem(24);
-			margin: 0 rem(8);
 		}
 	}
 
