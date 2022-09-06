@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220905190116">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220906190522">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title>Главная</title>
 </head>
@@ -143,21 +143,22 @@
 						<div class="sale-page__title _title">Распродажа путешествий</div>
 						<div class="sale-page__overflow">
 							<div class="sale-page__places">
-								<div class="sale-page__place _active">Все страны</div>
-								<div class="sale-page__place">Экскурсионные туры</div>
-								<div class="sale-page__place">Египет</div>
-								<div class="sale-page__place">ОАЭ</div>
-								<div class="sale-page__place">Шри Ланка</div>
-								<div class="sale-page__place">Доминикана</div>
-								<div class="sale-page__place">Тайланд</div>
-								<div class="sale-page__place">Греция</div>
-								<div class="sale-page__place">Мальдивы</div>
-								<div class="sale-page__place">Куба</div>
+								<div id="All" class="sale-page__place _active">Все страны</div>
+								<div id="Tours" class="sale-page__place">Экскурсионные туры</div>
+								<div id="Egypt" class="sale-page__place">Египет</div>
+								<div id="UAE" class="sale-page__place">ОАЭ</div>
+								<div id="Sri Lanka" class="sale-page__place">Шри Ланка</div>
+								<div id="Dominican Republic" class="sale-page__place">Доминикана</div>
+								<div id="Bali" class="sale-page__place">Бали</div>
+								<div id="Greece" class="sale-page__place">Греция</div>
+								<div id="Maldives" class="sale-page__place">Мальдивы</div>
+								<div id="Hungary" class="sale-page__place">Венгрия</div>
+								<div id="Czech" class="sale-page__place">Чехия</div>
 							</div>
 						</div>
 						<div class="sale-page__cards cards swiper">
 							<div class="cards__body swiper-wrapper">
-								<div class="cards__item swiper-slide">
+								<div data-country="Egypt" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg1.webp" type="image/webp"><img src="img/cards/cardsImg1.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -198,7 +199,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg2.webp" type="image/webp"><img src="img/cards/cardsImg2.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -238,7 +239,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Bali" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg3.webp" type="image/webp"><img src="img/cards/cardsImg3.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -278,7 +279,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg4.webp" type="image/webp"><img src="img/cards/cardsImg4.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -318,7 +319,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg5.webp" type="image/webp"><img src="img/cards/cardsImg5.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -358,7 +359,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Egypt" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg6.webp" type="image/webp"><img src="img/cards/cardsImg6.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -398,7 +399,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg7.webp" type="image/webp"><img src="img/cards/cardsImg7.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -438,7 +439,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="cards__item swiper-slide">
+								<div data-country="Bali" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg8.webp" type="image/webp"><img src="img/cards/cardsImg8.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -720,7 +721,7 @@
 </footer>
 	</div>
 	
-	<script src="js/app.min.js?_v=20220905190116"></script>
+	<script src="js/app.min.js?_v=20220906190522"></script>
 </body>
 
 </html>

@@ -2929,9 +2929,6 @@ body.ie ._ibg img {
   position: relative;
   border-radius: 0.5rem;
   border: 1px solid #F6F6F6;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -2943,6 +2940,12 @@ body.ie ._ibg img {
   transition: box-shadow 0.3s ease 0s, -webkit-box-shadow 0.3s ease 0s;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   cursor: pointer;
+  display: none;
+}
+
+.cards__item._choosed:hover {
+  -webkit-box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
+          box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
 }
 
 .cards__image {
@@ -3430,10 +3433,23 @@ body.ie ._ibg img {
   }
 
   .cards__body {
-    display: -ms-grid;
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 2.4390243902%;
+    row-gap: 2rem;
+  }
+
+  .cards__item {
+    width: 19rem;
+  }
+
+  .cards__item._choosed {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .suggestions-page__image {
@@ -4037,6 +4053,14 @@ body.ie ._ibg img {
     margin-bottom: 2rem;
   }
 
+  .cards__item {
+    width: 17rem;
+  }
+
+  .cards__item._choosed {
+    display: block;
+  }
+
   .cards__about {
     gap: 0.5rem 0.25rem;
   }
@@ -4109,6 +4133,14 @@ body.ie ._ibg img {
   }
 }
 
+@media (min-width: 47.99875em) and (max-width: 85.9375em) {
+  .cards__body {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 @media (any-hover: hover) {
   ._btn:hover {
     background-color: transparent;
@@ -4132,11 +4164,6 @@ body.ie ._ibg img {
 
   .menu-footer__link:hover {
     text-decoration: underline;
-  }
-
-  .cards__item:hover {
-    -webkit-box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
-            box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
   }
 
   .distribute-page__subscribe:hover {

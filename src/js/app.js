@@ -1,6 +1,5 @@
 import * as flsFunctions from './modules/functions.js';
 import * as script from './modules/script.js';
-// import * as spollers from './modules/spollers.js';
 import * as rangeSlider from './modules/rangeSlider.js';
 import Swiper, { Navigation, Pagination } from 'swiper';
 

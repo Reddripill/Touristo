@@ -1,5 +1,7 @@
 'use strict';
 
+import * as cards from './initCards.js';
+
 window.addEventListener('load', function (event) {
 	const body = document.querySelector('body');
 
@@ -49,10 +51,46 @@ window.addEventListener('load', function (event) {
 
 
 	//===================================================================================================
+
+
+	const dataCountries = document.querySelectorAll('[data-country]');
+	let availableCountries = [];
+	function createCountryArrow(countriesCollection) {
+		if (countriesCollection.length > 0) {
+			countriesCollection.forEach(dataCountry => {
+				let countriesObj = {};
+				let placeForTravel = dataCountry.dataset.country;
+				countriesObj.country = placeForTravel.toLowerCase();
+				countriesObj.item = dataCountry;
+				availableCountries.push(countriesObj);
+			})
+		}
+	}
+	createCountryArrow(dataCountries);
+
+
 	document.addEventListener('click', function (event) {
 		let el = event.target;
 		if (el.classList.contains('sale-page__place')) {
-			el.classList.toggle('_active');
+			if (!el.classList.contains('_active')) {
+				document.querySelectorAll('.sale-page__place').forEach(item => {
+					item.classList.remove('_active');
+				})
+			}
+			el.classList.add('_active');
+			const countryName = el.id.toLowerCase();
+			availableCountries.forEach(availableCountry => {
+				if (availableCountry.item.classList.contains('_choosed')) {
+					availableCountry.item.classList.remove('_choosed')
+				}
+			})
+			availableCountries.forEach(availableCountry => {
+				if (countryName == 'all') {
+					availableCountry.item.classList.add('_choosed')
+				} else if (availableCountry.country.indexOf(countryName) != -1) {
+					availableCountry.item.classList.add('_choosed');
+				}
+			})
 		}
 		if (el.closest('.cards__checkbox')) {
 			el.closest('.cards__checkbox').classList.toggle('_active');
@@ -118,153 +156,34 @@ window.addEventListener('load', function (event) {
 				searchInput.classList.remove('_hold');
 			}
 		}
+		if (el.closest('.main-page__button')) {
+			const pageSale = document.querySelector('.page__sale');
+			const pageSaleCoords = pageSale.getBoundingClientRect();
+			console.log(pageSaleCoords.top);
+			window.scrollTo({
+				top: pageSaleCoords.top + window.pageYOffset,
+				behavior: 'smooth',
+			});
+			event.preventDefault();
+		}
 	})
 
-	const allSuggestions = this.document.querySelector('.sale-page__btn');
+	const allSuggestions = document.querySelector('.sale-page__btn');
 	async function getCards(button) {
 		if (!button.classList.contains('_hold')) {
 			button.classList.add('_hold');
 			let response = await fetch('json/cards.json');
 			if (response.ok) {
 				let result = await response.json();
-				initCards(result);
+				cards.initCards(result);
 				button.classList.remove('_hold');
 				button.remove();
+				availableCountries = [];
+				createCountryArrow(document.querySelectorAll('[data-country]'));
 			} else {
 				alert('Ошибка при получении данных карточек');
 			}
 		}
-	}
-
-	function initCards(resultArr) {
-		const cardsBody = document.querySelector('.cards__body');
-		resultArr.cards.forEach(item => {
-			const image = item.image;
-			const labels = item.labels;
-			const id = item.id;
-			const title = item.title;
-			const country = item.country;
-			const dates = item.dates;
-			const visa = item.visa;
-			const transport = item.transport;
-			const hotelStars = item.hotelStars;
-			const food = item.food;
-			const price = item.price;
-			let cardsBlock = ``;
-			let imageBlock = ``;
-			let mainBlock = ``;
-
-			let cardsBodyStart = `<div class="cards__item swiper-slide">`;
-			let cardsBodyEnd = `</div>`;
-
-			let cardsImageStart = `<div class="cards__image _ibg">`;
-			let cardsImageEnd = `</div>`;
-
-			let cardsImg = `<img src="img/cards/${image}" alt="Пейзаж" class="cards__img">`;
-
-			let cardsLabels = ``;
-			if (labels) {
-				let cardsAllLabel = ``;
-				let cardsLabelsStart = `<div class="cards__labels">`;
-				let cardsLabelsEnd = `</div>`;
-				labels.forEach(cardsLabel => {
-					cardsAllLabel += `<label class="cards__label cards__label_${cardsLabel.type}">${cardsLabel.text}</label>`;
-				})
-				cardsLabels += cardsLabelsStart;
-				cardsLabels += cardsAllLabel;
-				cardsLabels += cardsLabelsEnd;
-			}
-
-			imageBlock += cardsImageStart;
-			imageBlock += cardsImg;
-			imageBlock += cardsLabels;
-			imageBlock += cardsImageEnd;
-
-
-			let cardsMainStart = `<div class="cards__main">`;
-			let cardsMainEnd = `</div>`;
-			let cardsId = `<div class="cards__id">id: ${id}</div>`;
-
-			let cardsTitle = `<a href="#" class="cards__title">${title}</a>`;
-
-			let cardsCountry = `<div class="cards__country">${country}</div>`;
-
-			let cardsDates = `<div class="cards__dates _icon-calendar">${dates}</div>`;
-
-			let cardsAbout = ``;
-
-			let cardsAboutStart = `<div class="cards__about">`;
-			let cardsAboutEnd = `</div>`;
-			let cardsAboutVisa = `<div class="cards__service _icon-www">${visa}</div>`;
-			let cardsAboutTransport = `<div class="cards__service _icon-${transport.type}">${transport.text}</div>`;
-			let cardsHotelStars = ``;
-			let cardsHotelStart = `
-				<div class="cards__service">
-					<p>Питание</p>`;
-			let cardsHotelEnd = `</div>`;
-			let cardsHotelStarsStart = `<div class="cards__stars">`;
-			let cardsHotelStarsEnd = `</div>`;
-			cardsHotelStars += cardsHotelStart;
-			cardsHotelStars += cardsHotelStarsStart;
-			if (hotelStars) {
-				for (let i = 0; i < hotelStars; i++) {
-					cardsHotelStars += `<div class="cards__star _active _icon-starFull"></div>`;
-				}
-				if (hotelStars != 5) {
-					for (let j = 0; j < 5 - hotelStars; j++) {
-						cardsHotelStars += `<div class="cards__star _active _icon-starBorder"></div>`;
-					}
-				}
-			}
-			cardsHotelStars += cardsHotelStarsEnd;
-			cardsHotelStars += cardsHotelEnd;
-			let cardsAboutFood = `
-			<div class="cards__service">
-				<p>Питание</p>
-				<div class="cards__additionally">${food}</div>
-			</div>`;
-
-
-			cardsAbout += cardsAboutStart;
-			cardsAbout += cardsAboutVisa;
-			cardsAbout += cardsAboutTransport;
-			cardsAbout += cardsHotelStars;
-			cardsAbout += cardsAboutFood;
-			cardsAbout += cardsAboutEnd;
-
-			let cardsPrice = ``;
-			let cardsPriceStart = `<div class="cards__price">`;
-			let cardsPriceEnd = `</div>`;
-
-			cardsPrice += cardsPriceStart;
-			cardsPrice += `<div class="cards__rubs"><span>${price.rub}</span> ₽ / на персону</div>`;
-			cardsPrice += `<div class="cards__euro">${price.euro} €</div>`;
-			cardsPrice += cardsPriceEnd;
-
-			let cardsCheckbox = `
-			<div class="cards__checkbox">
-				<input type="radio">
-				<div class="cards__compare">Добавить для сравнения</div>
-			</div>`;
-
-
-			mainBlock += cardsMainStart;
-			mainBlock += cardsId;
-			mainBlock += cardsTitle;
-			mainBlock += cardsCountry;
-			mainBlock += cardsDates;
-			mainBlock += cardsAbout;
-			mainBlock += cardsPrice;
-			mainBlock += cardsCheckbox;
-			mainBlock += cardsMainEnd;
-
-			cardsBlock += cardsBodyStart;
-			cardsBlock += imageBlock;
-			cardsBlock += mainBlock;
-			cardsBlock += cardsBodyEnd;
-
-			cardsBody.insertAdjacentHTML('beforeend', cardsBlock);
-		});
 	}
 
 	allSuggestions.addEventListener('click', function (event) {
@@ -272,7 +191,7 @@ window.addEventListener('load', function (event) {
 		getCards(event.target);
 	})
 
-	const searchForm = this.document.forms.searchForm;
+	const searchForm = document.forms.searchForm;
 	const searchInput = searchForm.elements.searchInput;
 	let searchInputPlaceholder = searchInput.placeholder;
 	initBlockInSearchField();
