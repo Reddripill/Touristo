@@ -659,12 +659,7 @@ body {
 			width: rem(304);
 		}
 		&._choosed {
-			@media(max-width : $mobile){
-				display: block;
-			}
-			@media(min-width : $mobile){
-				display: flex;
-			}
+			display: flex;
 			&:hover {
 				box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
 			}

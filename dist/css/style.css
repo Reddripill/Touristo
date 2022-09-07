@@ -2945,6 +2945,12 @@ body.ie ._ibg img {
   display: none;
 }
 
+.cards__item._choosed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .cards__item._choosed:hover {
   -webkit-box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
           box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
@@ -3446,12 +3452,6 @@ body.ie ._ibg img {
 
   .cards__item {
     width: 19rem;
-  }
-
-  .cards__item._choosed {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
   }
 
   .suggestions-page__image {
@@ -4053,10 +4053,6 @@ body.ie ._ibg img {
   .cards {
     margin-right: -1rem;
     margin-bottom: 2rem;
-  }
-
-  .cards__item._choosed {
-    display: block;
   }
 
   .cards__about {

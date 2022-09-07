@@ -82,17 +82,20 @@ window.addEventListener('load', function (event) {
 			const countryName = el.id.toLowerCase();
 			availableCountries.forEach(availableCountry => {
 				if (availableCountry.item.classList.contains('_choosed')) {
-					availableCountry.item.classList.remove('_choosed')
+					availableCountry.item.classList.remove('_choosed');
+					availableCountry.item.classList.remove('swiper-slide');
+					availableCountry.item.style = '';
 				}
 			})
 			availableCountries.forEach(availableCountry => {
 				if (countryName == 'all') {
-					availableCountry.item.classList.add('_choosed')
+					availableCountry.item.classList.add('_choosed');
+					availableCountry.item.classList.add('swiper-slide');
 				} else if (availableCountry.country.indexOf(countryName) != -1) {
 					availableCountry.item.classList.add('_choosed');
+					availableCountry.item.classList.add('swiper-slide');
 				}
 			})
-			main.salePageCards.removeSlide(1);
 		}
 		if (el.closest('.cards__checkbox')) {
 			el.closest('.cards__checkbox').classList.toggle('_active');
