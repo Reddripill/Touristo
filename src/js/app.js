@@ -15,10 +15,6 @@ function initSwiperOnMobile() {
 		if (!initPhone) {
 			initPhone = true;
 			salePageCards = new Swiper('.sale-page__cards', {
-				navigation: {
-					// nextEl: '.swiper-button-next',
-					// prevEl: '.swiper-button-prev'
-				},
 				pagination: {
 					el: '.sale-page__pagination',
 					type: 'fraction',
@@ -26,8 +22,9 @@ function initSwiperOnMobile() {
 				slidesPerView: 1.08,
 				spaceBetween: 16,
 				watchOverflow: true,
-				loop: true,
+				loop: false,
 				modules: [Navigation, Pagination],
+				observer: true,
 			});
 		}
 	} else if (initPhone) {
@@ -59,6 +56,7 @@ function initSwiperOnBigDevice() {
 		initBigDevice = false;
 	}
 }
+
 
 let reports = new Swiper('.report-page__body', {
 	slidesPerView: 3,
@@ -94,3 +92,4 @@ window.addEventListener('resize', () => {
 	initSwiperOnBigDevice();
 });
 
+export { salePageCards };

@@ -1,5 +1,6 @@
 'use strict';
 
+import * as main from '../app.js';
 import * as cards from './initCards.js';
 
 window.addEventListener('load', function (event) {
@@ -91,6 +92,7 @@ window.addEventListener('load', function (event) {
 					availableCountry.item.classList.add('_choosed');
 				}
 			})
+			main.salePageCards.removeSlide(1);
 		}
 		if (el.closest('.cards__checkbox')) {
 			el.closest('.cards__checkbox').classList.toggle('_active');
