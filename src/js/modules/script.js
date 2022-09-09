@@ -96,6 +96,11 @@ window.addEventListener('load', function (event) {
 					availableCountry.item.classList.add('swiper-slide');
 				}
 			})
+			if (!document.querySelector('.cards__item._choosed')) {
+				document.querySelector('.cards__nothing').classList.add('_active');
+			} else {
+				document.querySelector('.cards__nothing').classList.remove('_active');
+			}
 		}
 		if (el.closest('.cards__checkbox')) {
 			el.closest('.cards__checkbox').classList.toggle('_active');
@@ -192,9 +197,33 @@ window.addEventListener('load', function (event) {
 	}
 
 	allSuggestions.addEventListener('click', function (event) {
+		const countryInputs = document.querySelectorAll('.sale-page__place');
+		const cardsItems = document.querySelectorAll('.cards__item');
+		const cardsNothing = document.querySelector('.cards__nothing');
 		event.preventDefault();
+		countryInputs.forEach(countryInput => {
+			if (countryInput.id.toLowerCase() !== 'all') {
+				if (countryInput.classList.contains('_active')) {
+					countryInput.classList.remove('_active');
+				}
+			} else {
+				if (!countryInput.classList.contains('_active')) {
+					countryInput.classList.add('_active');
+				}
+			}
+		})
+		cardsItems.forEach(cardsItem => {
+			if (!cardsItem.classList.contains('_choosed')) {
+				cardsItem.classList.add('_choosed');
+				cardsItem.classList.add('swiper-slide');
+			}
+		})
+		if (cardsNothing.classList.contains('_active')) {
+			cardsNothing.classList.remove('_active')
+		}
 		getCards(event.target);
 	})
+
 
 	const searchForm = document.forms.searchForm;
 	const searchInput = searchForm.elements.searchInput;

@@ -2951,11 +2951,6 @@ body.ie ._ibg img {
   display: flex;
 }
 
-.cards__item._choosed:hover {
-  -webkit-box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
-          box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
-}
-
 .cards__image {
   padding-bottom: 57.8947368421%;
   margin-bottom: 1rem;
@@ -3136,6 +3131,19 @@ body.ie ._ibg img {
   line-height: 133.3333333333%;
   color: #22C3CA;
   border-bottom: 2px dotted #22C3CA;
+}
+
+.cards__nothing {
+  text-align: center;
+  color: #35424B;
+  font-size: 1.875rem;
+  line-height: 150%;
+  font-weight: bold;
+  display: none;
+}
+
+.cards__nothing._active {
+  display: block;
 }
 
 .distribute-page {
@@ -4069,6 +4077,12 @@ body.ie ._ibg img {
     font-size: 1rem;
   }
 
+  .cards__nothing {
+    padding-right: 0.5rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+
   .distribute-page {
     margin-bottom: 3.75rem;
   }
@@ -4158,6 +4172,11 @@ body.ie ._ibg img {
 
   .menu-footer__link:hover {
     text-decoration: underline;
+  }
+
+  .cards__item._choosed:hover {
+    -webkit-box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
+            box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
   }
 
   .distribute-page__subscribe:hover {

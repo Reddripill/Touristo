@@ -660,8 +660,10 @@ body {
 		}
 		&._choosed {
 			display: flex;
-			&:hover {
-				box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
+			@media(any-hover : hover){
+				&:hover {
+					box-shadow: 0px 8px 24px rgba(34, 195, 202, 0.24);
+				}
 			}
 		}
 	}
@@ -828,6 +830,23 @@ body {
 		line-height: math.div(16, 12) * 100%;
 		color: $blueColor;
 		border-bottom: 2px dotted $blueColor;
+	}
+
+	&__nothing {
+		text-align: center;
+		color: $mainColor;
+		font-size: rem(30);
+		line-height: 150%;
+		font-weight: bold;
+		display: none;
+		@media(max-width : $mobile){
+			padding-right: rem(8);
+			margin-right: rem(16);
+			font-size: rem(24);
+		}
+		&._active {
+			display: block;
+		}
 	}
 }
 

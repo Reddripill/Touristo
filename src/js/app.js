@@ -49,6 +49,7 @@ function initSwiperOnBigDevice() {
 				watchOverflow: true,
 				loop: true,
 				modules: [Navigation, Pagination],
+				initialSlide: 1,
 			});
 		}
 	} else if (initBigDevice) {
@@ -92,4 +93,4 @@ window.addEventListener('resize', () => {
 	initSwiperOnBigDevice();
 });
 
-export { salePageCards };
+export { salePageCards, suggestions };
