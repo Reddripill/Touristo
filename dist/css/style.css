@@ -2141,7 +2141,6 @@ body.ie ._ibg img {
 
 .header__body {
   background-color: #fff;
-  border-radius: 0px 0px 8px 8px;
   position: relative;
   min-height: 5.9375rem;
   display: -webkit-box;
@@ -2150,6 +2149,10 @@ body.ie ._ibg img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 0px 0px 8px 8px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 .header__empty {
@@ -3843,7 +3846,10 @@ body.ie ._ibg img {
 
   .header__container._active {
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  .header__container._active .header__body {
+    border-radius: 0;
   }
 
   .header__body {
