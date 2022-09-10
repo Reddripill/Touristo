@@ -10,9 +10,9 @@ flsFunctions.ibg();
 
 let initPhone = false;
 let salePageCards;
-function initSwiperOnMobile() {
+function initSwiperOnMobile(clickInit = false) {
 	if (window.innerWidth <= 768) {
-		if (!initPhone) {
+		if (!initPhone || clickInit) {
 			initPhone = true;
 			salePageCards = new Swiper('.sale-page__cards', {
 				pagination: {
@@ -24,7 +24,6 @@ function initSwiperOnMobile() {
 				watchOverflow: true,
 				loop: false,
 				modules: [Navigation, Pagination],
-				observer: true,
 			});
 		}
 	} else if (initPhone) {
@@ -49,7 +48,6 @@ function initSwiperOnBigDevice() {
 				watchOverflow: true,
 				loop: true,
 				modules: [Navigation, Pagination],
-				initialSlide: 1,
 			});
 		}
 	} else if (initBigDevice) {
@@ -93,4 +91,4 @@ window.addEventListener('resize', () => {
 	initSwiperOnBigDevice();
 });
 
-export { salePageCards, suggestions };
+export { salePageCards, initSwiperOnMobile };

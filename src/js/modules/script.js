@@ -77,31 +77,31 @@ window.addEventListener('load', function (event) {
 				document.querySelectorAll('.sale-page__place').forEach(item => {
 					item.classList.remove('_active');
 				})
-			}
-			el.classList.add('_active');
-			const countryName = el.id.toLowerCase();
-			availableCountries.forEach(availableCountry => {
-				if (availableCountry.item.classList.contains('_choosed')) {
-					availableCountry.item.classList.remove('_choosed');
-					availableCountry.item.classList.remove('swiper-slide');
-					availableCountry.item.style = '';
+				el.classList.add('_active');
+				const countryName = el.id.toLowerCase();
+				availableCountries.forEach(availableCountry => {
+					if (availableCountry.item.classList.contains('_choosed')) {
+						availableCountry.item.classList.remove('_choosed');
+					}
+				})
+				availableCountries.forEach(availableCountry => {
+					if (countryName == 'all') {
+						availableCountry.item.classList.add('_choosed');
+					} else if (availableCountry.country.indexOf(countryName) != -1) {
+						availableCountry.item.classList.add('_choosed');
+					}
+				})
+				if (!document.querySelector('.cards__item._choosed')) {
+					document.querySelector('.cards__nothing').classList.add('_active');
+				} else {
+					document.querySelector('.cards__nothing').classList.remove('_active');
+					main.salePageCards.destroy();
+					main.initSwiperOnMobile(true);
 				}
-			})
-			availableCountries.forEach(availableCountry => {
-				if (countryName == 'all') {
-					availableCountry.item.classList.add('_choosed');
-					availableCountry.item.classList.add('swiper-slide');
-				} else if (availableCountry.country.indexOf(countryName) != -1) {
-					availableCountry.item.classList.add('_choosed');
-					availableCountry.item.classList.add('swiper-slide');
-				}
-			})
-			if (!document.querySelector('.cards__item._choosed')) {
-				document.querySelector('.cards__nothing').classList.add('_active');
-			} else {
-				document.querySelector('.cards__nothing').classList.remove('_active');
 			}
 		}
+
+
 		if (el.closest('.cards__checkbox')) {
 			el.closest('.cards__checkbox').classList.toggle('_active');
 		}
@@ -215,13 +215,14 @@ window.addEventListener('load', function (event) {
 		cardsItems.forEach(cardsItem => {
 			if (!cardsItem.classList.contains('_choosed')) {
 				cardsItem.classList.add('_choosed');
-				cardsItem.classList.add('swiper-slide');
 			}
 		})
 		if (cardsNothing.classList.contains('_active')) {
 			cardsNothing.classList.remove('_active')
 		}
 		getCards(event.target);
+		main.salePageCards.destroy();
+		main.initSwiperOnMobile(true);
 	})
 
 
