@@ -78,6 +78,8 @@ window.addEventListener('load', function (event) {
 	// All clicks
 	//===================================================================================================
 
+
+	// console.log(this.document.querySelector('.sublist-addition').offsetHeight);
 	document.addEventListener('click', function (event) {
 		let el = event.target;
 		if (el.classList.contains('sale-page__place')) {
@@ -135,6 +137,7 @@ window.addEventListener('load', function (event) {
 		if (el.closest('.main-page__action')) {
 			let firstChild = el.closest('.main-page__actions').firstElementChild;
 			let descriptionBlock = document.querySelector('.main-page__description');
+			const sublistAddition = document.querySelector('.sublist-addition');
 			if (firstChild.classList.contains('_active')) {
 				firstChild.classList.remove('_active');
 				firstChild.nextElementSibling.classList.add('_active');
@@ -144,16 +147,24 @@ window.addEventListener('load', function (event) {
 			}
 			descriptionBlock.classList.toggle('_active');
 			if (descriptionBlock.classList.contains('_active')) {
-				descriptionBlock.style.height = descriptionBlock.scrollHeight + 'px';
+				descriptionBlock.style.height = descriptionBlock.scrollHeight - sublistAddition.offsetHeight + 'px';
 			} else {
 				descriptionBlock.style.height = 0;
 			}
 		}
 		if (el.closest('.addition-data__arrow')) {
 			let additionalSublist = document.querySelector('.sublist-addition');
+			let descriptionBlock = document.querySelector('.main-page__description');
+			const sublistAddition = document.querySelector('.sublist-addition');
+			if (!additionalSublist.classList.contains('_active')) {
+				descriptionBlock.style.height = descriptionBlock.scrollHeight + 'px';
+			} else {
+				descriptionBlock.style.height = descriptionBlock.scrollHeight - sublistAddition.offsetHeight + 'px';
+			}
 			el.closest('.addition-data__arrow').classList.toggle('_active');
 			el.closest('.addition-data__arrow').previousElementSibling.classList.toggle('_hide');
 			additionalSublist.classList.toggle('_active');
+
 		}
 		if (el.closest('.sublist-addition__action')) {
 			if (el.classList.contains('sublist-addition__action_plus')) {
@@ -338,7 +349,7 @@ window.addEventListener('load', function (event) {
 
 		if (document.querySelector('._filter__item')) {
 			const blockInSearchItems = document.querySelectorAll('._filter__item');
-			if (blockInSearchItems.length > 2) {
+			if (blockInSearchItems.length > 0) {
 				searchInput.classList.add('_hold')
 			}
 		}

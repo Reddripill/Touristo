@@ -208,6 +208,7 @@ body {
 		top: calc(100% - rem(8));
 		left: 0;
 		width: 100%;
+		z-index: 3;
 	}
 
 	&__actions {
@@ -275,7 +276,7 @@ body {
 		transition: all 0.3s ease 0s;
 		&._active {
 			overflow: visible;
-			margin: rem(40) 0 rem(32) 0;
+			margin: rem(60) 0 rem(32) 0;
 		}
 		@media(max-width : em(1000)){
 			display: block;
@@ -439,6 +440,9 @@ body {
 
 .range-slider {
 	flex: 1 1 auto;
+	@media(max-width : $mobile){
+		margin: rem(20) 0;
+	}
 	&__duration {
 		font-size: rem(16);
 		line-height: math.div(24, 16) * 100%;

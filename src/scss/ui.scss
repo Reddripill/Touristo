@@ -144,11 +144,12 @@
 
 
 .option {
-	background-color: #fff;
+	background-color: rgb(255, 255, 255);
 	border-radius: 0px 0px rem(8) rem(8);
 	padding: rem(10) 0;
 	opacity: 0;
 	visibility: hidden;
+	// box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.218);
 	&._active {
 		opacity: 1;
 		visibility: visible;

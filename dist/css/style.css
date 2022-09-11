@@ -1789,7 +1789,7 @@ textarea.input {
 }
 
 .option {
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   border-radius: 0px 0px 0.5rem 0.5rem;
   padding: 0.625rem 0;
   opacity: 0;
@@ -2525,6 +2525,7 @@ body.ie ._ibg img {
   top: calc(100% - 0.5rem);
   left: 0;
   width: 100%;
+  z-index: 3;
 }
 
 .main-page__actions {
@@ -2598,7 +2599,7 @@ body.ie ._ibg img {
 
 .main-page__description._active {
   overflow: visible;
-  margin: 2.5rem 0 2rem 0;
+  margin: 3.75rem 0 2rem 0;
 }
 
 .addition-data {
@@ -4074,6 +4075,10 @@ body.ie ._ibg img {
 
   .sublist-addition {
     top: 3.0625rem;
+  }
+
+  .range-slider {
+    margin: 1.25rem 0;
   }
 
   .sale-page__container {
