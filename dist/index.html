@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.min.css?_v=20220910141539">
+	<link rel="stylesheet" href="css/style.min.css?_v=20220911135339">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title>Главная</title>
 </head>
@@ -59,13 +59,16 @@
 							<div class="main-page__title">Куда отправимся?</div>
 							<div class="main-page__text">Вы можете осуществить поиск по нескольким направлениям одновременно
 							</div>
-							<form action="#" name="searchForm" class="main-page__input _input">
-								<div class="main-page__submit">
-									<input type="submit" value="" class="main-page__submit_button">
-									<div class="main-page__icon _icon-search"></div>
+							<form action="#" name="searchForm" class="main-page__form _input">
+								<div class="main-page__input _input">
+									<div class="main-page__submit">
+										<input type="submit" value="" class="main-page__submit_button">
+										<div class="main-page__icon _icon-search"></div>
+									</div>
+									<input name="searchInput" type="text" class="main-page__field"
+										placeholder="Страна, город, регион, отель">
 								</div>
-								<input name="searchInput" type="text" class="main-page__field"
-									placeholder="Страна, город, регион, отель">
+								<div class="main-page__option option"></div>
 							</form>
 							<div class="main-page__description">
 								<div class="main-page__input_small addition-data">
@@ -199,7 +202,7 @@
 										</div>
 									</div>
 								</div>
-								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
+								<div data-country="Czech, Hungary, Tours" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg2.webp" type="image/webp"><img src="img/cards/cardsImg2.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -279,7 +282,7 @@
 										</div>
 									</div>
 								</div>
-								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
+								<div data-country="Czech, Hungary, Tours" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg4.webp" type="image/webp"><img src="img/cards/cardsImg4.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -319,7 +322,7 @@
 										</div>
 									</div>
 								</div>
-								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
+								<div data-country="Czech, Hungary, Tours" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg5.webp" type="image/webp"><img src="img/cards/cardsImg5.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -399,7 +402,7 @@
 										</div>
 									</div>
 								</div>
-								<div data-country="Czech, Hungary" class="cards__item swiper-slide _choosed">
+								<div data-country="Czech, Hungary, Tours" class="cards__item swiper-slide _choosed">
 									<div class="cards__image _ibg">
 										<picture><source srcset="img/cards/cardsImg7.webp" type="image/webp"><img src="img/cards/cardsImg7.jpg" alt="Пейзаж" class="cards__img"></picture>
 										<div class="cards__labels">
@@ -722,7 +725,7 @@
 </footer>
 	</div>
 	
-	<script src="js/app.min.js?_v=20220910141539"></script>
+	<script src="js/app.min.js?_v=20220911135339"></script>
 </body>
 
 </html>

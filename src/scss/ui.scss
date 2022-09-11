@@ -141,6 +141,32 @@
 	font-size: rem(32);
 	line-height: math.div(48, 32) * 100%;
 }
+
+
+.option {
+	background-color: #fff;
+	border-radius: 0px 0px rem(8) rem(8);
+	padding: rem(10) 0;
+	opacity: 0;
+	visibility: hidden;
+	&._active {
+		opacity: 1;
+		visibility: visible;
+	}
+	&__item{
+		color: $blueColor;
+		font-weight: bold;
+		font-size: rem(16);
+		line-height: 150%;
+		cursor: pointer;
+		padding: rem(10) rem(20);
+		display: none;
+		&._match {
+			display: block;
+		}
+	}
+}
+
 //</ОСНОВНОЙ БЛОК>====================================================================================================
 
 //<ГОТОВЫЕ КЛАССЫ>====================================================================================================

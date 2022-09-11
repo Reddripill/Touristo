@@ -1788,6 +1788,33 @@ textarea.input {
   line-height: 150%;
 }
 
+.option {
+  background-color: #fff;
+  border-radius: 0px 0px 0.5rem 0.5rem;
+  padding: 0.625rem 0;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.option._active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.option__item {
+  color: #22C3CA;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 150%;
+  cursor: pointer;
+  padding: 0.625rem 1.25rem;
+  display: none;
+}
+
+.option__item._match {
+  display: block;
+}
+
 .row:after {
   display: block;
   content: "";
@@ -2434,6 +2461,11 @@ body.ie ._ibg img {
   color: #fff;
 }
 
+.main-page__form {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
 .main-page__input {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2441,7 +2473,6 @@ body.ie ._ibg img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 1rem;
 }
 
 .main-page__input_small {
@@ -2487,6 +2518,13 @@ body.ie ._ibg img {
 .main-page__field._hold {
   opacity: 0;
   visibility: hidden;
+}
+
+.main-page__option {
+  position: absolute;
+  top: calc(100% - 0.5rem);
+  left: 0;
+  width: 100%;
 }
 
 .main-page__actions {

@@ -70,6 +70,14 @@ window.addEventListener('load', function (event) {
 	createCountryArrow(dataCountries);
 
 
+	// Options
+	//===================================================================================================
+
+	//===================================================================================================
+
+	// All clicks
+	//===================================================================================================
+
 	document.addEventListener('click', function (event) {
 		let el = event.target;
 		if (el.classList.contains('sale-page__place')) {
@@ -158,6 +166,12 @@ window.addEventListener('load', function (event) {
 		}
 		if (el.closest('._filter__close')) {
 			el.closest('._filter__close').parentElement.remove();
+			let optionChooseItems = document.querySelectorAll('.option__item._choose');
+			optionChooseItems.forEach(optionChooseItem => {
+				if (optionChooseItem.textContent == el.closest('._filter__close').parentElement.textContent) {
+					optionChooseItem.classList.remove('_choose');
+				}
+			})
 			if (!document.querySelector('._filter__item')) {
 				searchInput.setAttribute('placeholder', searchInputPlaceholder);
 			}
@@ -176,7 +190,21 @@ window.addEventListener('load', function (event) {
 			});
 			event.preventDefault();
 		}
+		if (el.closest('.option__item._match')) {
+			el.classList.add('_choose');
+			createFieldFilter(el.closest('.option__item._match'));
+			let optionMatchItems = document.querySelectorAll('.option__item._match');
+			document.querySelector('.option__item._match').parentElement.classList.remove('_active');
+			optionMatchItems.forEach(optionMatchItem => {
+				optionMatchItem.classList.remove('_match');
+			})
+		}
 	})
+
+	//===================================================================================================
+
+	// Create a new cards from json file
+	//===================================================================================================
 
 	const allSuggestions = document.querySelector('.sale-page__btn');
 	async function getCards(button) {
@@ -225,13 +253,72 @@ window.addEventListener('load', function (event) {
 		main.initSwiperOnMobile(true);
 	})
 
+	//===================================================================================================
+
+	// Search input
+	//===================================================================================================
 
 	const searchForm = document.forms.searchForm;
 	const searchInput = searchForm.elements.searchInput;
 	let searchInputPlaceholder = searchInput.placeholder;
-	initBlockInSearchField();
-	searchForm.addEventListener('submit', function (event) {
-		event.preventDefault();
+
+	let optionsAvailableItems = [];
+	const option = document.querySelector('.option');
+	async function getOptions() {
+		let response = await fetch('json/options.json');
+		if (response.ok) {
+			let result = await response.json();
+			initOptionsBlock(result);
+		} else {
+			alert('Произошла ошибка при получении optins.json');
+		}
+	}
+
+	function initOptionsBlock(resultObj) {
+		resultObj.options.forEach(item => {
+			let optionItem = document.createElement('div');
+			optionItem.classList.add('option__item');
+			optionItem.textContent = item.name;
+			option.append(optionItem);
+			let optionItemObject = {};
+			optionItemObject.name = item.name;
+			optionItemObject.variety = item.variety;
+			optionItemObject.item = optionItem;
+			optionsAvailableItems.push(optionItemObject);
+		})
+	}
+
+	getOptions();
+
+	function checkOptionsMatches(optionsAvailableItem, searchInputValue) {
+		for (const item of optionsAvailableItem.variety) {
+			if (item.slice(0, searchInputValue.length).toLowerCase() === searchInputValue.toLowerCase()) return true;
+			continue;
+		}
+	}
+
+	searchInput.addEventListener('input', function () {
+		let searchInputValue = searchInput.value;
+		optionsAvailableItems.forEach(optionsAvailableItem => {
+			if (checkOptionsMatches(optionsAvailableItem, searchInputValue) && searchInputValue != '') {
+				if (!optionsAvailableItem.item.classList.contains('_match') && !optionsAvailableItem.item.classList.contains('_choose')) {
+					optionsAvailableItem.item.classList.add('_match');
+				}
+			} else {
+				if (optionsAvailableItem.item.classList.contains('_match')) {
+					optionsAvailableItem.item.classList.remove('_match');
+				}
+			}
+		})
+		if (document.querySelector('.option__item._match')) {
+			option.classList.add('_active');
+		} else {
+			option.classList.remove('_active');
+		}
+	})
+
+
+	function createFieldFilter(item, field = false) {
 		const blockInSearch = document.querySelector('._filter__list');
 		const blockInSearchItem = document.createElement('div');
 		const blockInSearchClose = document.createElement('div');
@@ -239,12 +326,16 @@ window.addEventListener('load', function (event) {
 		blockInSearchItem.classList.add('_filter__item');
 		blockInSearchClose.classList.add('_filter__close');
 		blockInSearchClose.classList.add('_icon-close');
-		if (searchInput.value.length > 3 && searchInput.value.length <= 10) {
+
+		if (!field) {
+			blockInSearchItem.textContent = item.textContent;
+		} else {
 			blockInSearchItem.textContent = searchInput.value;
-			blockInSearch.append(blockInSearchItem);
-			blockInSearchItem.append(blockInSearchClose);
-			searchInput.value = '';
 		}
+		blockInSearch.append(blockInSearchItem);
+		blockInSearchItem.append(blockInSearchClose);
+		searchInput.value = '';
+
 		if (document.querySelector('._filter__item')) {
 			const blockInSearchItems = document.querySelectorAll('._filter__item');
 			if (blockInSearchItems.length > 2) {
@@ -254,7 +345,13 @@ window.addEventListener('load', function (event) {
 		if (document.contains(blockInSearchItem)) {
 			searchInput.removeAttribute('placeholder');
 		}
+	}
+
+	initBlockInSearchField();
+	searchForm.addEventListener('submit', function (event) {
+		event.preventDefault();
 	})
+
 	function initBlockInSearchField() {
 		const blockInSearch = document.createElement('div');
 		blockInSearch.classList.add('_filter');
@@ -263,4 +360,6 @@ window.addEventListener('load', function (event) {
 		blockInSearchList.classList.add('_filter__list');
 		blockInSearch.append(blockInSearchList);
 	}
+
+	//===================================================================================================
 })
